@@ -83,7 +83,7 @@ namespace TestAspNetCoreSite.Mocks
         }
         public IEnumerable<MicrowaveModel> FavouriteMicrowaves { get; set; }
 
-        public MicrowaveModel GetObjectCar(int carId)
+        public MicrowaveModel GetObjectMicrowave(int microwaveId)
         {
             throw new NotImplementedException();
         }

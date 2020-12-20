@@ -6,7 +6,7 @@ using TestAspNetCoreSite.Data.Models;
 
 namespace TestAspNetCoreSite.Interfaces
 {
-    interface IMicrowavesCategory
+    public interface IMicrowavesCategory
     {
         IEnumerable<MicrowaveCategoryModel> AllMicrowavesCategories { get; }
     }
