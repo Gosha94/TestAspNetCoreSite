@@ -7,6 +7,7 @@ using TestAspNetCoreSite.Interfaces;
 using TestAspNetCoreSite.Mocks;
 using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
 using TestAspNetCoreSite.Data.EfCoreContext;
+using TestAspNetCoreSite.Data.Repository;
 
 namespace TestAspNetCoreSite
 {
@@ -24,10 +25,11 @@ namespace TestAspNetCoreSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbaseContext>(options => options.UseSqlServer(_confString.GetConnectionString("SqlServerConnection")));
-            // Сопоставляем Класс и Интерфейс, вероятно это DI контейнер
-            
+            // Сопоставляем Класс и Интерфейс, вероятно это DI контейнер            
             //services.AddTransient<IAllMicrowaves, MockMicrowaves>();
             //services.AddTransient<IMicrowavesCategory, MockMicrowaveCategory>();            
+            services.AddTransient<IAllMicrowaves, MicrowaveRepository>();
+            services.AddTransient<IMicrowavesCategory, MicrowaveCategoryRepository>();
             // Подключаем MVC к проекту
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
