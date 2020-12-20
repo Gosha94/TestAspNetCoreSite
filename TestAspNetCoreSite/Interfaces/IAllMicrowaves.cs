@@ -6,7 +6,7 @@ namespace TestAspNetCoreSite.Interfaces
     public interface IAllMicrowaves
     {
         IEnumerable<MicrowaveModel> Microwaves { get;}
-        IEnumerable<MicrowaveModel> FavouriteMicrowaves { get; set; }
+        IEnumerable<MicrowaveModel> FavouriteMicrowaves { get; }
         MicrowaveModel GetObjectMicrowave(int microwaveId);
     }
 }

@@ -1,11 +1,16 @@
 ﻿    <h1>Данные по микроволновкам:</h1>
     <h3>@Model.CurrentCategory</h3>
-    @{
-        foreach (var microwave in Model.AllMicrowaves)
-        {
-            <div>
-                <h2>Модель: @microwave.Name</h2>
-                <p>Цена: @microwave.Price.ToString("c")</p>
-            </div>
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (var microwave in Model.AllMicrowaves)
+            {
+                <div class="col-lg-4">
+                    <img class="img-thumbnail" src="@microwave.ImagePath" alt="@microwave.Name"/>
+                    <h2>@microwave.Name</h2>
+                    <p>@microwave.ShortDesctiptionForMainPage</p>
+                    <p>Цена: @microwave.Price.ToString("c")</p>
+                    <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+                </div>
+            }
         }
-    }
+    </div>
